@@ -1,0 +1,35 @@
+<%- include("partials/header"); -%>
+
+<div class="container">
+  <h1>Home</h1>
+  <h5 style="margin: 30px 0 20px">
+    This website is mainly developed for to improve the creator programming
+    skills especially in full stack developer that needs to be a professional in
+    both front and back end.
+  </h5>
+  <p><%= putContent %></p>
+  <!-- composePost is posts in here that is in app.js -->
+
+  <!-- forEach method is same for loop function -->
+  <% composePost.forEach(function(post){ %>
+  <!--'title' and 'content' get from the app.js database Schame name -->
+  <h4><%= post.title %></h4>
+
+  <p>
+    <%= post.content.substring(0,100) + " ..." %>
+    <a href="/posts/<%= post._id %>">Read More</a>
+  </p>
+  <form action="/delete" method="post">
+    <button
+      class="btn btn-sm btn-warning"
+      type="submit"
+      name="submit"
+      value="<%= post._id %>"
+    >
+      Delete
+    </button>
+  </form>
+
+  <% }) %>
+</div>
+<%- include("partials/footer"); -%>
