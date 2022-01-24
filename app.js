@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -16,9 +17,15 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const mangoUser = process.env.DB_USER;
+const mangoPass = process.env.DB_PASS;
 // mongoose.connect("mongodb://localhost:27017/blogDB");
 mongoose.connect(
-  "mongodb+srv://angret-admin:test123@cluster0.cg5cp.mongodb.net/blogDB"
+  "mongodb+srv://" +
+    mangoUser +
+    ":" +
+    mangoPass +
+    "@cluster0.cg5cp.mongodb.net/blogDB"
 );
 
 const blogSchema = {
@@ -126,5 +133,5 @@ if (port == null || port == "") {
 }
 
 app.listen(port, function () {
-  console.log("Server has started running on live. ");
+  console.log("Server has started running on live or localhost.");
 });
