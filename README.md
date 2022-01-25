@@ -29,7 +29,7 @@ $ npm install
 ## Set up
 To run this project, install it locally using npm:
 ```
-$ cd ../go
+$ cd ../go_your_directory
 $ npm install
 $ node app.js
 
