@@ -24,6 +24,7 @@ You can install using npm:
 
 ```
 $ npm install 
+$ npm install express
 
 ```
 ## Set up
