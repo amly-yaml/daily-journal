@@ -25,7 +25,7 @@ mongoose.connect(
     mangoUser +
     ":" +
     mangoPass +
-    "@cluster0.cg5cp.mongodb.net/blogDB"
+    "mogodb_database"
 );
 
 const blogSchema = {
